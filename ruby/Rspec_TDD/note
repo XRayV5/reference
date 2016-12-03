@@ -1,0 +1,15 @@
+Useful gems for Rspec to test active records:
+https://github.com/thoughtbot/shoulda-matchers
+  provide implementations of matchers for ActiveModel, ActiveRecord
+
+https://github.com/rspec/rspec-activemodel-mocks
+  provide means to work with Active Record test doubles -> mock_model, mock_stub
+  - Does not hit the DB
+
+Use 'helper' object to test helper methods
+  - 'helper' has access to all rails built in helper methods
+  - Alternatively, include helper modules in the spec file
+  - test helper methods with value assigned to its related instance vars, test the helper method in its context. using assign()
+
+Accessing instance vars:
+  assigns[:var] or assigns('var')

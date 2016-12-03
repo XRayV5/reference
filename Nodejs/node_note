@@ -1,0 +1,18 @@
+editing "scripts" from package.json
+
+"scripts": {
+  "start" : "nodemon -e css, ejs, js, json --watch app --ignore file.json",
+  "test": "echo \"Error: no test specified\" && exit 1"
+},
+
+
+
+npm install reload
+to setup browser auto-reloading after change/server restart
+
+EJS = Embeddable JavaScript
+
+www.embeddedjs.com
+
+
+<%- Data Parsed to HTML content %>

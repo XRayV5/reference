@@ -1,0 +1,101 @@
+13 Oct 2016 - 11:00am to 12:00pm AEDT
+Make an Appointment
+Provide required documents and forms
+Ensure you read the additional information
+
+
+
+
+Steps to setup react dev environment
+
+
+//1. Install babel - ES6 translator
+//  webpack - a module bundler
+npm i babel webpack webpack-dev-server
+
+
+//2. Install react packages
+npm i react react-dom --save
+
+//3. Install related babel packages
+npm i babel-loader babel-core babel-preset-es2015 babel-preset-react
+
+
+OR:
+npm install --save-dev html-webpack-plugin webpack webpack-dev-server babel-core babel-loader babel-preset-react
+
+
+
+//4. create your own .js files and webpack.config.js
+touch index.html App.js main.js webpack.conifg.js
+
+//Content of webpack.config.js:
+
+module.exports = {
+  entry: './main.js',
+  output: {
+    path : './',
+    filename: 'index.js',
+  },
+  devServer: {
+    inline: true,
+    port: 3333
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets:['es2015', 'react']
+        }
+      }
+    ]
+  }
+}
+
+
+Every react class has a render() method
+which returns a JSX expression
+which equals to:
+  return React.createElement('h1', null, 'Hello Guys');
+
+  //all JXS expressions are processed at the back stage this way
+
+  Components:
+  class components: it's allowed to have states
+  stateless function components
+
+  A React component should use props to store information that can be changed, but can only be changed by a different component.
+
+  A React component should use state to store information that the component itself can change.
+
+  this.setState({}) cannot be called within the render function of the component. Because, when this.setState({}) is called, it calls render function automatically, so calling this.setState({}) within a render function will result in a infinite loop
+
+  second programming pattern: separating presentational components from display components.
+
+  When a component renders for the first time, componentWillMount gets called right before render.
+
+  componentWillMount does NOT get called, because mounting lifecycle events only execute the first time that a component renders.
+
+  If your React app uses AJAX to fetch initial data from an API, then componentDidMount is the place to make that AJAX call.
+
+  componentDidMount is also the place to set timers using setTimeout or setInterval.
+
+  The best way to use shouldComponentUpdate is to have it return false only under certain conditions. If those conditions are met, then your component will not update.
+
+  If you need to do non-React setup before a component renders, such as checking the window size or interacting with an API, then componentWillUpdate is a good place to do that.
+
+
+  Refs,
+
+  Refs is a way to reference an instance of a certain Component within the app
+
+  Refs will not work with stateless components
+
+
+
+  Define stateless Component use const
+
+  const Button = (props) => {...}
